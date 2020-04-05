@@ -3,6 +3,8 @@ package com.test.rabbitmq.day0405.topic;
 import com.rabbitmq.client.*;
 import com.test.ConnnectionUtil;
 
+import java.io.IOException;
+
 /**
  * @Package: com.test.rabbitmq.day0405.topic
  * @ClassName: Recv
@@ -11,25 +13,32 @@ import com.test.ConnnectionUtil;
  * @Date: 2020/4/5 9:48
  */
 public class Recv {
+    private final static String QUEUE_NAME = "topic_exchange_queue_Q1";
+    private final static String EXCHANGE_NAME = "test_topic_exchange";
 
-    private final static String QUEUE_NAME="topic_exchange_queue_Q1";
-    private final static String EXCHANG_NAME="test_topic_exchange";
-
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] argv) throws Exception {
+        // 获取到连接
         Connection connection = ConnnectionUtil.getConnection();
+        // 获取通道
         Channel channel = connection.createChannel();
+        // 声明队列
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
-        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
-        channel.queueBind(QUEUE_NAME,EXCHANG_NAME,"*.orange.*");
+        // 绑定队列到交换机，同时指定需要订阅的routing key。订阅所有的橙色动物
+        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "*.orange.*");
 
-        DefaultConsumer consumer = new DefaultConsumer(channel){
+        // 定义队列的消费者
+        DefaultConsumer consumer = new DefaultConsumer(channel) {
+            // 获取消息，并且处理，这个方法类似事件监听，如果有消息的时候，会被自动调用
             @Override
-            public void handleDelivery(String consumerTage, Envelope envelope , AMQP.BasicProperties basicproperties,
-                                       byte[] body){
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties,
+                                       byte[] body) throws IOException {
+                // body 即消息体
                 String msg = new String(body);
-                System.out.println("[l消费者1] received："+msg+"!");
+                System.out.println(" [消费者1] received : " + msg + "!");
             }
         };
-        channel.basicConsume(QUEUE_NAME,true,consumer);
+        // 监听队列，自动ACK
+        channel.basicConsume(QUEUE_NAME, true, consumer);
     }
 }
