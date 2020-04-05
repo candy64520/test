@@ -2,7 +2,7 @@ package com.test.rabbitmq.day0404.publish_subscribe;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.test.rabbitmq.day03.ConnnectionUtil;
+import com.test.ConnnectionUtil;
 
 /**
  * @Package: com.test.rabbitmq.day0404.publish_subscribe

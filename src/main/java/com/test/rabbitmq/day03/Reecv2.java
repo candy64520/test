@@ -2,6 +2,7 @@ package com.test.rabbitmq.day03;
 
 
 import com.rabbitmq.client.*;
+import com.test.ConnnectionUtil;
 
 import java.io.IOException;
 

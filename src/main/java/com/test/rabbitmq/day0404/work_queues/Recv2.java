@@ -1,4 +1,4 @@
-package com.test.rabbitmq.day0404;
+package com.test.rabbitmq.day0404.work_queues;
 
 import com.rabbitmq.client.*;
 import com.test.ConnnectionUtil;
@@ -13,7 +13,7 @@ import java.io.IOException;
  * @Date: 2020/4/4 15:13
  */
 public class Recv2 {
-    private final static String QUEUE_NAME = "simple_queue";
+    private final static String QUEUE_NAME = "test_work_queue_0404";
 
     public static void main(String[] args) throws Exception {
         Connection connection = ConnnectionUtil.getConnection();

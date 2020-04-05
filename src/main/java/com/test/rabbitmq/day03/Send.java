@@ -2,6 +2,7 @@ package com.test.rabbitmq.day03;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
+import com.test.ConnnectionUtil;
 
 
 public class Send {

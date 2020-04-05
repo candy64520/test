@@ -1,9 +1,9 @@
-package com.test.rabbitmq.day0405;
+package com.test.rabbitmq.day0405.topic;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.test.rabbitmq.day03.ConnnectionUtil;
+import com.test.ConnnectionUtil;
 
 /**
  * @Package: com.test.rabbitmq.day0405
@@ -21,7 +21,12 @@ public class Send {
         channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
 
         String msg = "Topic 这是一只运动迅速的橙色的兔子";
-        
+        // 发送消息，并且指定routing key为：quick.orange.rabbit
+        channel.basicPublish(EXCHANGE_NAME,"quick.orange.rabbit",null,msg.getBytes());
+
+        System.out.println("[动物描述] sent "+msg+" '");
+        channel.close();
+        connection.close();
 
     }
 }

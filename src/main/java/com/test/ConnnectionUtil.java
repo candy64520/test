@@ -1,4 +1,4 @@
-package com.test.rabbitmq.day03;
+package com.test;
 
 
 import com.rabbitmq.client.Connection;

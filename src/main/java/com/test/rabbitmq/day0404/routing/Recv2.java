@@ -1,7 +1,7 @@
 package com.test.rabbitmq.day0404.routing;
 
 import com.rabbitmq.client.*;
-import com.test.rabbitmq.day03.ConnnectionUtil;
+import com.test.ConnnectionUtil;
 
 import java.io.IOException;
 

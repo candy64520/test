@@ -1,4 +1,4 @@
-package com.test.rabbitmq.day0404;
+package com.test.rabbitmq.day0404.work_queues;
 
 import com.rabbitmq.client.Channel;
 import com.test.ConnnectionUtil;
@@ -10,8 +10,15 @@ import com.rabbitmq.client.Connection;
  * @ClassName: Send
  * @Author: 86150
  * @Description: work消息模型   生产者循环发送50条消息
+ *
+ *
  * @Date: 2020/4/4 14:52
  */
+
+/**
+ * work queues
+ */
+
 public class Send {
 
     private final static String QUEUE_NAME="test_work_queue_0404";
@@ -35,7 +42,7 @@ public class Send {
             //参数：String exchange, String routingKey, BasicProperties props, byte[] body
             /**
              * 参数明细：
-             * 1、exchange，交换机，如果不指定将使用mq的默认交换机（设置为""）
+             * 1、exchange，交换机，如果 不指定将使用mq的默认交换机（设置为""）
              * 2、routingKey，路由key，交换机根据路由key来将消息转发到指定的队列，如果使用默认交换机，routingKey设置为队列的名称
              * 3、props，消息的属性
              * 4、body，消息内容
