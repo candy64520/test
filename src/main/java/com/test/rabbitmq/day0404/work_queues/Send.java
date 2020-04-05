@@ -1,7 +1,7 @@
 package com.test.rabbitmq.day0404;
 
 import com.rabbitmq.client.Channel;
-import com.test.rabbitmq.day03.ConnnectionUtil;
+import com.test.ConnnectionUtil;
 
 import com.rabbitmq.client.Connection;
 
