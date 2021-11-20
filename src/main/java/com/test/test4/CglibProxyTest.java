@@ -6,6 +6,10 @@ import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Package: com.test.test4
@@ -28,6 +32,13 @@ public class CglibProxyTest {
     //    这里可以看到这个类以及被代理，在执行方法前会执行aopMethod（）。这里需要注意的是oneDay（）方法和onedayFinal（）的区别。onedayFinal的方法aopMethod执行2次，oneDay的aopMethod执行1次 ,注意这里和jdk的代理的区别
         CglibTestSon2.oneday();
         CglibTestSon2.onedayFinal();
+
+        ReentrantLock ReentrantLock =new ReentrantLock();
+
+        Collections.synchronizedMap(null);
+
+        ConcurrentHashMap hashMap = new ConcurrentHashMap();
+       HashMap map = new HashMap();
     }
 }
 /**

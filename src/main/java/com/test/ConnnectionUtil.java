@@ -22,4 +22,8 @@ public class ConnnectionUtil {
         Connection connection = factory.newConnection();
         return connection;
     }
+
+    public void test3(){
+        System.out.println("9999");
+    }
 }
