@@ -32,6 +32,10 @@ public class test {
             System.out.println("第一次调用thread.interrupted()："+thread.interrupted());
             System.out.println("第二次调用thread.interrupted()："+thread.interrupted());
             System.out.println("thread是否存活："+thread.isAlive());
+
+            System.out.println("thread是否存活："+thread.isAlive());
+            System.out.println("thread是否存活："+thread.isAlive());
+
         }
     }
 }
