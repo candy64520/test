@@ -36,6 +36,8 @@ public class test {
             System.out.println("thread是否存活："+thread.isAlive());
             System.out.println("thread是否存活："+thread.isAlive());
 
+            System.out.println("dev：--"+thread.isAlive());
+
             System.out.println("pro   pro ："+thread.isAlive());
 
         }
