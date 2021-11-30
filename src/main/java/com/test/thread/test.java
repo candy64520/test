@@ -38,6 +38,8 @@ public class test {
 
             System.out.println("dev：--"+thread.isAlive());
 
+            System.out.println("pro   pro ："+thread.isAlive());
+
         }
     }
 }
