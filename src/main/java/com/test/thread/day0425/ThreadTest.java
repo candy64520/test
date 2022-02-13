@@ -23,14 +23,14 @@ public class ThreadTest {
         RejectedExecutionHandler handler = new MyIgnorePolicy();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit,
                 workQueue, threadFactory, handler);
-        executor.prestartAllCoreThreads(); // 预启动所有核心线程
+//        executor.prestartAllCoreThreads(); // 预启动所有核心线程
 
         for (int i = 1; i <= 10; i++) {
             MyTask task = new MyTask(String.valueOf(i));
             executor.execute(task);
         }
 
-        System.in.read(); //阻塞主线程
+//        System.in.read(); //阻塞主线程
     }
 
     static class NameTreadFactory implements ThreadFactory {
