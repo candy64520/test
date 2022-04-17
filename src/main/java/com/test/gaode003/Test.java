@@ -18,6 +18,9 @@ public class Test {
 
     @org.junit.Test
     public void test() throws IOException {
+
+        System.out.println("回滚测试");
+
         String str = FileUtils.readFileToString(new File("C:\\workProject\\360\\test_data\\data\\test90.txt"), "UTF-8");
 
 
